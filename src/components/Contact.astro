@@ -1,0 +1,53 @@
+---
+import Section from './ui/Section.astro';
+---
+
+<Section id="contact" title="Get In Touch" number="04">
+  <div class="max-w-2xl mx-auto text-center animate-slide-up">
+    <h3 class="text-2xl md:text-3xl font-bold text-light-blue-grey mb-6">Let's Work Together</h3>
+    
+    <p class="text-slate mb-8">
+      I'm currently looking for new opportunities. Whether you have a question or just want to say hi,
+      I'll do my best to get back to you!
+    </p>
+    
+    <a 
+      href="mailto:hello@halozano.com" 
+      class="btn inline-block px-8 py-4 text-base"
+    >
+      Say Hello
+    </a>
+    
+    <div class="mt-16 animate-slide-up delay-300">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="bg-charcoal/20 rounded-lg p-6 text-left">
+          <h4 class="font-mono text-mint mb-4 flex items-center">
+            <i class="fas fa-map-marker-alt mr-3"></i>
+            Location
+          </h4>
+          
+          <p class="text-slate">Chihuahua, Mexico</p>
+          <p class="text-slate">Open to Remote Work</p>
+        </div>
+        
+        <div class="bg-charcoal/20 rounded-lg p-6 text-left">
+          <h4 class="font-mono text-mint mb-4 flex items-center">
+            <i class="fas fa-paper-plane mr-3"></i>
+            Contact Info
+          </h4>
+          
+          <p class="text-slate mb-2">
+            <a href="mailto:hello@halozano.com" class="hover:text-mint transition-colors">
+              hello@halozano.com
+            </a>
+          </p>
+          <p class="text-slate">
+            <a href="tel:+526141599307" class="hover:text-mint transition-colors">
+              +52 (614) 159-9307
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>

@@ -1,0 +1,17 @@
+---
+const socialLinks = [];
+---
+
+<div class="flex justify-center space-x-6">
+  {socialLinks.map((link) => (
+    <a 
+      href={link.url} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="text-slate hover:text-mint transition-colors w-10 h-10 flex items-center justify-center rounded-full border border-slate/30 hover:border-mint"
+      aria-label={link.name}
+    >
+      <i class={link.icon}></i>
+    </a>
+  ))}
+</div>

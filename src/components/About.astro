@@ -1,0 +1,64 @@
+---
+import Section from './ui/Section.astro';
+---
+
+<Section id="about" title="About Me" number="01">
+  <div class="grid md:grid-cols-5 gap-12 items-start">
+    <div class="md:col-span-3 animate-slide-up">
+      <p class="text-slate mb-4">
+        Hello! My name is Hector, and I enjoy creating things that live on the internet. 
+        My interest in web development started back in 2005 when I decided to try creating an webpage — turns out hacking together a welcome page taught 
+        me a lot about HTML & CSS!
+      </p>
+      
+      <p class="text-slate mb-4">
+        Fast-forward to today, and I've had the privilege of working at 
+        <a href="https://www.lienzo.mx/" target="_blank" class="text-mint hover:underline">an indie videogame studio</a>, 
+        <a href="https://www.blucapital.mx/" target="_blank" class="text-mint hover:underline">a financial company</a>, and 
+        <a href="https://www.halsystems.mx/" class="text-mint hover:underline">a digital marketing agency</a>. 
+        My main focus these days is building accessible, inclusive products and digital 
+        experiences for a variety of clients.
+      </p>
+      
+      <p class="text-slate mb-4">
+        Here are a few technologies I've been working with recently:
+      </p>
+      
+      <ul class="grid grid-cols-2 gap-x-8 gap-y-2 mb-8">
+        <li class="font-mono text-sm text-light-blue-grey flex items-center stagger-item">
+          <span class="text-mint mr-2">▹</span> JavaScript (ES6+)
+        </li>
+        <li class="font-mono text-sm text-light-blue-grey flex items-center stagger-item">
+          <span class="text-mint mr-2">▹</span> Vue.js
+        </li>
+        <li class="font-mono text-sm text-light-blue-grey flex items-center stagger-item">
+          <span class="text-mint mr-2">▹</span> PHP
+        </li>
+        <li class="font-mono text-sm text-light-blue-grey flex items-center stagger-item">
+          <span class="text-mint mr-2">▹</span> Laravel
+        </li>
+        <li class="font-mono text-sm text-light-blue-grey flex items-center stagger-item">
+          <span class="text-mint mr-2">▹</span> Node.js
+        </li>
+        <li class="font-mono text-sm text-light-blue-grey flex items-center stagger-item">
+          <span class="text-mint mr-2">▹</span> Tailwind CSS
+        </li>
+      </ul>
+    </div>
+    
+    <div class="md:col-span-2 animate-slide-up delay-300 relative group">
+      <div class="relative rounded-md overflow-hidden">
+        <div class="absolute inset-0 bg-mint/20 group-hover:bg-transparent transition-colors duration-300 z-10"></div>
+        <div class="w-full aspect-square rounded-md bg-mint/10 p-2 relative">
+          <div class="w-full h-full rounded overflow-hidden">
+            <img 
+              src="/assets/profile.png" 
+              alt="Hello, this is me!" 
+              class="w-full h-full object-cover rounded"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>

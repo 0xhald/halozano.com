@@ -1,0 +1,98 @@
+---
+// Get current URL path
+const currentPath = Astro.url.pathname;
+const isHomePage = currentPath === '/';
+
+const navItems = [
+  { name: 'About', url: isHomePage ? '#about' : '/#about' },
+  { name: 'Contact', url: isHomePage ? '#contact' : '/#contact' },
+];
+---
+
+<header class="fixed w-full bg-navy/90 backdrop-blur-sm z-50 px-6 py-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="/" class="text-mint font-mono text-xl font-bold hover:text-coral transition-colors">
+      <span class="text-mint">&lt;</span>dev<span class="text-mint">/&gt;</span>
+    </a>
+    
+    <nav class="hidden md:block">
+      <ul class="flex gap-8">
+        {navItems.map((item, index) => (
+          <li class="animate-slide-down" style={`animation-delay: ${index * 100}ms`}>
+            <a 
+              href={item.url} 
+              class="text-light-blue-grey hover:text-mint transition-colors px-2 py-1 font-mono text-sm relative group"
+            >
+              <span class="text-mint font-mono">0{index + 1}.</span> {item.name}
+              <span class="absolute left-0 right-0 bottom-0 h-0.5 bg-mint scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></span>
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+    
+    <button id="menu-toggle" class="md:hidden text-mint text-xl">
+      <i class="fas fa-bars"></i>
+    </button>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 bg-navy/95 flex flex-col justify-center items-center z-50 transform translate-x-full transition-transform duration-300">
+      <button id="menu-close" class="absolute top-6 right-6 text-mint text-xl">
+        <i class="fas fa-times"></i>
+      </button>
+      
+      <nav>
+        <ul class="flex flex-col gap-8 items-center">
+          {navItems.map((item, index) => (
+            <li>
+              <a 
+                href={item.url} 
+                class="text-light-blue-grey hover:text-mint transition-colors px-2 py-1 font-mono text-xl"
+              >
+                <span class="text-mint font-mono">0{index + 1}.</span> {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu functionality
+  const menuToggle = document.getElementById('menu-toggle');
+  const menuClose = document.getElementById('menu-close');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const mobileMenuLinks = document.querySelectorAll('#mobile-menu a');
+  
+  menuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('translate-x-full');
+    document.body.style.overflow = 'hidden';
+  });
+  
+  menuClose?.addEventListener('click', () => {
+    mobileMenu?.classList.add('translate-x-full');
+    document.body.style.overflow = '';
+  });
+  
+  mobileMenuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('translate-x-full');
+      document.body.style.overflow = '';
+    });
+  });
+  
+  // Header scroll behavior
+  const header = document.querySelector('header');
+  let lastScrollY = window.scrollY;
+  
+  window.addEventListener('scroll', () => {
+    if (lastScrollY < window.scrollY) {
+      header?.classList.add('-translate-y-full', 'transition-transform', 'duration-300');
+    } else {
+      header?.classList.remove('-translate-y-full');
+    }
+    lastScrollY = window.scrollY;
+  });
+</script>

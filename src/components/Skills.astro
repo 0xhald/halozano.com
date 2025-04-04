@@ -1,0 +1,92 @@
+---
+import Section from './ui/Section.astro';
+import { skillCategories } from '../data/skills';
+---
+
+<Section id="skills" title="Skills & Technologies" number="03">
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    {skillCategories.map((category, categoryIndex) => (
+      <div 
+        class="bg-charcoal/30 backdrop-blur-sm rounded-lg p-6 border border-slate/10 hover:border-mint/30 transition-colors duration-300 animate-slide-up" 
+        style={`animation-delay: ${categoryIndex * 100}ms`}
+      >
+        <div class="flex items-center mb-4">
+          <i class={`${category.icon} text-mint text-2xl mr-3`}></i>
+          <h3 class="text-xl font-bold text-light-blue-grey">{category.name}</h3>
+        </div>
+        
+        <ul class="space-y-3">
+          {category.skills.map((skill, skillIndex) => (
+            <li class="stagger-item">
+              <div class="flex justify-between items-center mb-1">
+                <span class="text-light-blue-grey font-medium">{skill.name}</span>
+                <span class="text-slate text-sm font-mono">{skill.level}%</span>
+              </div>
+              <div class="w-full bg-navy/50 rounded-full h-2 overflow-hidden">
+                <div class="bg-mint h-full rounded-full" style={`width: ${skill.level}%`}></div>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
+    ))}
+  </div>
+  
+  <div class="mt-24 animate-slide-up delay-300">
+    <h3 class="text-xl font-bold text-light-blue-grey mb-8 text-center">My Development Environment</h3>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-charcoal/20 rounded-lg p-6 group hover:bg-charcoal/30 transition-colors duration-300">
+        <h4 class="font-mono text-mint mb-4 flex items-center">
+          <i class="fas fa-laptop-code mr-3"></i>
+          Coding Setup
+        </h4>
+        
+        <ul class="space-y-2">
+          <li class="flex items-start">
+            <span class="text-mint mr-2">▹</span>
+            <span class="text-slate">VSCode with One Dark Pro theme</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-mint mr-2">▹</span>
+            <span class="text-slate">JetBrains Mono font</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-mint mr-2">▹</span>
+            <span class="text-slate">ESLint + Prettier</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-mint mr-2">▹</span>
+            <span class="text-slate">GitLens + GitHub Copilot</span>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="bg-charcoal/20 rounded-lg p-6 group hover:bg-charcoal/30 transition-colors duration-300">
+        <h4 class="font-mono text-mint mb-4 flex items-center">
+          <i class="fas fa-toolbox mr-3"></i>
+          Productivity Tools
+        </h4>
+        
+        <ul class="space-y-2">
+          <li class="flex items-start">
+            <span class="text-mint mr-2">▹</span>
+            <span class="text-slate">Notion for notes and planning</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-mint mr-2">▹</span>
+            <span class="text-slate">Figma for design</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-mint mr-2">▹</span>
+            <span class="text-slate">iTerm2 with Oh My Zsh</span>
+          </li>
+          <li class="flex items-start">
+            <span class="text-mint mr-2">▹</span>
+            <span class="text-slate">Spotify for music</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</Section>

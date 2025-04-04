@@ -1,0 +1,24 @@
+---
+import Section from './ui/Section.astro';
+import ProjectCard from './ProjectCard.astro';
+import { projects } from '../data/projects';
+---
+
+<Section id="projects" title="Some Things I've Built" number="02">
+  <div class="space-y-32">
+    {projects.map((project, index) => (
+      <div class="animate-slide-up" style={`animation-delay: ${index * 100}ms`}>
+        <ProjectCard 
+          title={project.title}
+          description={project.description}
+          technologies={project.technologies}
+          imageSrc={project.image}
+          githubUrl={project.github}
+          liveUrl={project.live}
+          reverse={index % 2 !== 0}
+          slug={project.slug}
+        />
+      </div>
+    ))}
+  </div>
+</Section>

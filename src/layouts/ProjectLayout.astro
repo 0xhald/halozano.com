@@ -1,0 +1,106 @@
+---
+import Layout from '@layouts/Layout.astro';
+import Header from '@components/Header.astro';
+import Footer from '@components/Footer.astro';
+
+export interface Props {
+  title: string;
+  description: string;
+  thumbnail: string;
+  technologies: string[];
+  githubUrl: string;
+  liveUrl: string;
+}
+
+const { title, description, thumbnail, technologies, githubUrl, liveUrl } = Astro.props;
+---
+
+<Layout title={`${title} | Developer Portfolio`} description={description} image={thumbnail}>
+  <Header />
+  
+  <main class="pt-24">
+    <article class="container mx-auto px-6 py-12 md:py-24">
+      <header class="mb-12 md:mb-24">
+        <p class="font-mono text-mint mb-2">Project</p>
+        <h1 class="text-4xl md:text-5xl font-bold text-light-blue-grey mb-6">{title}</h1>
+        
+        <div class="max-w-3xl mb-8">
+          <p class="text-slate text-lg">{description}</p>
+        </div>
+        
+        <div class="flex flex-wrap gap-x-4 gap-y-2 mb-8">
+          {technologies.map((tech) => (
+            <span class="bg-navy px-3 py-1 rounded text-mint text-sm font-mono">{tech}</span>
+          ))}
+        </div>
+        
+        <div class="flex gap-6">
+          <a 
+            href={githubUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn"
+          >
+            <i class="fab fa-github mr-2"></i>
+            View Code
+          </a>
+          
+          <a 
+            href={liveUrl} 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            class="btn"
+          >
+            <i class="fas fa-external-link-alt mr-2"></i>
+            Live Demo
+          </a>
+        </div>
+      </header>
+      
+      <div class="mb-12 md:mb-24">
+        <img 
+          src={thumbnail} 
+          alt={title} 
+          class="w-full rounded-lg shadow-lg"
+        />
+      </div>
+      
+      <div class="max-w-3xl mx-auto">
+        <slot />
+      </div>
+      
+      <div class="mt-24 border-t border-slate/30 pt-12">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+          <a href="/projects" class="text-mint hover:text-coral transition-colors flex items-center">
+            <i class="fas fa-arrow-left mr-2"></i>
+            Back to Projects
+          </a>
+          
+          <div class="flex gap-6">
+            <a 
+              href={githubUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn"
+            >
+              <i class="fab fa-github mr-2"></i>
+              View Code
+            </a>
+            
+            <a 
+              href={liveUrl} 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              class="btn"
+            >
+              <i class="fas fa-external-link-alt mr-2"></i>
+              Live Demo
+            </a>
+          </div>
+        </div>
+      </div>
+    </article>
+  </main>
+  
+  <Footer />
+</Layout>

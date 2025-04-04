@@ -1,0 +1,179 @@
+@import url('/fonts/inter.css');
+@import url('/fonts/jetbrains-mono.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css');
+@import "tailwindcss";
+
+/* Base styles */
+@theme {
+  --navy: #0A192F;
+  --mint: #64FFDA;
+  --coral: #FF4D5F;
+  --charcoal: #2D2E32;
+  --light-blue-grey: #CCD6F6;
+  --slate: #8892B0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--navy);
+  color: var(--light-blue-grey);
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 24px;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 24px;
+}
+
+/* Typography */
+.heading-xl {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+}
+
+.heading-lg {
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+}
+
+.heading-md {
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Container styles */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Section spacing */
+.section {
+  padding: 100px 0;
+}
+
+/* Button styles */
+.btn {
+  display: inline-block;
+  background: transparent;
+  color: var(--mint);
+  border: 1px solid var(--mint);
+  border-radius: 4px;
+  padding: 12px 24px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 14px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.btn:hover {
+  background: rgba(100, 255, 218, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Utilities */
+.text-mint {
+  color: var(--mint);
+}
+
+.text-coral {
+  color: var(--coral);
+}
+
+.text-slate {
+  color: var(--slate);
+}
+
+/* Animation classes */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-in-out forwards;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideUp 0.5s ease-in-out forwards;
+}
+
+.slide-down {
+  opacity: 0;
+  transform: translateY(-20px);
+  animation: slideDown 0.5s ease-in-out forwards;
+}
+
+/* Animation delays */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .section {
+    padding: 60px 0;
+  }
+}
